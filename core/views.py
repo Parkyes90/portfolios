@@ -1,7 +1,6 @@
 import json
 import os
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.http import JsonResponse, HttpResponse
 from django.middleware.csrf import get_token
@@ -11,7 +10,7 @@ from rest_framework import status
 from config.settings import BASE_DIR
 
 
-class IndexTemplateView(LoginRequiredMixin, TemplateView):
+class IndexTemplateView(TemplateView):
     def get_template_names(self):
         template_name = "index.html"
         return template_name

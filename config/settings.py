@@ -40,16 +40,7 @@ DJANGO_APPS = [
 ]
 
 
-THIRD_PARTY_APPS = [
-    "rest_framework",
-    "rest_framework.authtoken",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "rest_auth",
-    "rest_auth.registration",
-    "crispy_forms",
-]
+THIRD_PARTY_APPS = ["rest_framework"]
 
 LOCAL_APPS = ["core", "users"]
 
@@ -154,11 +145,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-LOGIN_URL = "/accounts/login/"
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -173,15 +159,6 @@ STATICFILES_DIRS = [
 # User Model
 AUTH_USER_MODEL = "users.User"
 
-# django-crispy-forms
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-# django.contrib.sites
-SITE_ID = 1
-
-# django-allauth
-ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_EMAIL_REQUIRED = True
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

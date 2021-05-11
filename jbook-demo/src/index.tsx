@@ -40,6 +40,8 @@ const App = () => {
     <div>
       <textarea
         value={input}
+        rows={10}
+        cols={100}
         onChange={(e) => {
           setInput(e.target.value);
         }}

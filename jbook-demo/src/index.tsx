@@ -33,15 +33,14 @@ const App = () => {
         },
       });
       setCode(result.outputFiles[0].text);
-
-      try {
-        eval(result.outputFiles[0].text);
-      } catch (e) {
-        alert(e);
-      }
     }
   };
 
+  const html = `
+    <script>
+    ${code}
+</script>
+  `;
   return (
     <div>
       <textarea
@@ -56,7 +55,7 @@ const App = () => {
         <button onClick={onClick}>Submit</button>
       </div>
       <pre>{code}</pre>
-      <iframe src="/test.html" title="test" sandbox="allow-same-origin" />
+      <iframe srcDoc={html} title="doc" sandbox="allow-scripts" />
     </div>
   );
 };

@@ -33,6 +33,12 @@ const App = () => {
         },
       });
       setCode(result.outputFiles[0].text);
+
+      try {
+        eval(result.outputFiles[0].text);
+      } catch (e) {
+        alert(e);
+      }
     }
   };
 
@@ -50,6 +56,7 @@ const App = () => {
         <button onClick={onClick}>Submit</button>
       </div>
       <pre>{code}</pre>
+      <iframe src="/test.html" title="test" sandbox="allow-same-origin" />
     </div>
   );
 };

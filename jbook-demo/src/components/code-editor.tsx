@@ -1,7 +1,5 @@
 import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import React from "react";
-import { editor } from "monaco-editor";
-import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
 interface CodeEditorProps {
   initialValue: string;
@@ -14,6 +12,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       onChange(getValue());
     });
   };
+
   return (
     <MonacoEditor
       editorDidMount={onEditorDidMount}

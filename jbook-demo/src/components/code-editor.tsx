@@ -1,3 +1,4 @@
+import "./code-editor.css";
 import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import React, { useRef } from "react";
 import prettier from "prettier";
@@ -29,7 +30,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
   };
 
   return (
-    <div>
+    <div className="editor-wrapper">
       <button
         onClick={onFormatClick}
         className="button button-format is-primary is-small"

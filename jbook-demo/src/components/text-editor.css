@@ -1,9 +1,24 @@
 .w-md-editor .title {
-    line-height: unset;
-    font-size: unset;
-    font-weight: unset;
+  line-height: unset;
+  font-size: unset;
+  font-weight: unset;
 }
 
 .w-md-editor ul {
-    line-height: 1;
+  line-height: 1;
+}
+
+.text-editor-wrapper .w-md-editor-bar svg {
+  display: none;
+}
+
+.text-editor-wrapper .w-md-editor-bar {
+  height: 11px;
+  background-color: #37414b;
+  background-repeat: no-repeat;
+  cursor: row-resize;
+  background-position: 50%;
+  width: 100%;
+  position: relative;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
 }

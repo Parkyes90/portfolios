@@ -8,6 +8,10 @@
   opacity: 1.0;
 }
 
+.force-visible.add-cell {
+  opacity: 1.0;
+}
+
 
 .add-cell .divider {
   position: absolute;

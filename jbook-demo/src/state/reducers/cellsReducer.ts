@@ -50,9 +50,9 @@ const reducer = produce((state: CellsState = initialState, action: Action) => {
         (id) => id === action.payload.id
       );
       if (foundIndex < 0) {
-        state.order.push(cell.id);
+        state.order.unshift(cell.id);
       } else {
-        state.order.splice(foundIndex, 0, cell.id);
+        state.order.splice(foundIndex + 1, 0, cell.id);
       }
       return state;
     default:

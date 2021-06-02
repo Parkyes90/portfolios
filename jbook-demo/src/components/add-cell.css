@@ -9,6 +9,11 @@
   opacity: 1.0;
 }
 
+.add-cell:active {
+  opacity: 0 !important;
+  transition: opacity 0s;
+}
+
 .force-visible.add-cell {
   opacity: 1.0;
 }

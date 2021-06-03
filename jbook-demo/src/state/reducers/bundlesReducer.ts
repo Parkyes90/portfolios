@@ -16,11 +16,27 @@ const reducer = produce(
   (state: BundlesState = initialState, action: Action): BundlesState => {
     switch (action.type) {
       case ActionType.BUNDLE_START:
+        state[action.payload.cellId] = {
+          loading: true,
+          code: "",
+          err: "",
+        };
         return state;
       case ActionType.BUNDLE_COMPLETE:
+        const {
+          cellId,
+          bundle: { code, err },
+        } = action.payload;
+        state[cellId] = {
+          loading: false,
+          code,
+          err,
+        };
         return state;
       default:
         return state;
     }
   }
 );
+
+export default reducer;

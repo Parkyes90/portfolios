@@ -14,6 +14,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell, createBundle } = useActions();
   const bundles = useTypedSelector((state) => state.bundles);
   const bundle = bundles && bundles[cell.id];
+
   useEffect(() => {
     const timer = setTimeout(async () => {
       createBundle(cell.id, cell.content);

@@ -16,10 +16,11 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const bundle = bundles && bundles[cell.id];
 
   useEffect(() => {
-    createBundle(cell.id, cell.content);
-  }, []);
+    if (!bundle) {
+      createBundle(cell.id, cell.content);
+      return () => {};
+    }
 
-  useEffect(() => {
     const timer = setTimeout(async () => {
       createBundle(cell.id, cell.content);
     }, 750);

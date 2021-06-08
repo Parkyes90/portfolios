@@ -22,7 +22,11 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const cumulativeCode: string[] = [
       `
          const show = (value) => {
+         if (typeof value === 'object') {
+          document.querySelector('$root').innerHTML = JSON.stringify(value);
+         } else {
           document.querySelector('$root').innerHTML = value;
+          }
          }
         `,
     ];

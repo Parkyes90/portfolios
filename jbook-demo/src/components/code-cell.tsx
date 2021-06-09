@@ -6,7 +6,7 @@ import Resizable from "./resizable";
 import { useActions } from "../hooks/use-actions";
 import { Cell } from "../state";
 import { useTypedSelector } from "../hooks/use-typed-selector";
-import { CellsState } from "../state/reducers/cellsReducer";
+import { useCumulativeCode } from "../hooks/use-cumulative-code";
 
 interface CodeCellProps {
   cell: Cell;
@@ -16,40 +16,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell, createBundle } = useActions();
   const bundles = useTypedSelector((state) => state.bundles);
   const bundle = bundles && bundles[cell.id];
-  const cumulativeCode = useTypedSelector((state) => {
-    const { data, order } = state.cells as CellsState;
-    const orderedCells = order.map((id) => data[id]);
-    const showFunc = `
-    import _React from 'react';
-    import _ReactDOM from 'react-dom';
-    var show = (value) => {
-      const root = document.querySelector('$root');
-      if (typeof value === 'object') {
-        if (value.$$typeof && value.props) {
-          _ReactDOM.render(value, root)
-        } else {
-          root.innerHTML = JSON.stringify(value);
-        }
-      } else {
-        root.innerHTML = value;
-      }
-    }
-    `;
-    const showFuncNoop = `var show = () => {}`;
-    const cumulativeCode: string[] = [];
-    orderedCells.some((c) => {
-      if (c.type === "code") {
-        if (c.id === cell.id) {
-          cumulativeCode.push(showFunc);
-        } else {
-          cumulativeCode.push(showFuncNoop);
-        }
-        cumulativeCode.push(c.content);
-      }
-      return c.id === cell.id;
-    });
-    return cumulativeCode;
-  });
+  const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     if (!bundle) {

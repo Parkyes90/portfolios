@@ -31,6 +31,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     return () => {
       clearTimeout(timer);
     };
+    // eslint-disable-next-line
   }, [cumulativeCode.join("\n"), cell.id, createBundle]);
 
   return (

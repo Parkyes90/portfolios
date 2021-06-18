@@ -9,7 +9,7 @@ import { useActions } from "../hooks/use-actions";
 const CellList: React.FC = () => {
   const cellState = useTypedSelector((state) => state.cells) as CellsState;
   const cells = cellState.order.map((id) => cellState.data[id]);
-  const { fetchCells, saveCells } = useActions();
+  const { fetchCells } = useActions();
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
       <AddCell previousCellId={cell.id} />
@@ -20,10 +20,6 @@ const CellList: React.FC = () => {
   useEffect(() => {
     fetchCells();
   }, []);
-
-  useEffect(() => {
-    saveCells();
-  }, [JSON.stringify(cells)]);
 
   return (
     <div className="cell-list">

@@ -1,8 +1,13 @@
 {
   "name": "@pysjsnote/local-client",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@monaco-editor/react": "3.7.5",
     "@testing-library/jest-dom": "^5.11.4",

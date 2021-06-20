@@ -10,7 +10,9 @@ export const serve = (
   useProxy: boolean
 ) => {
   const app = express();
-  const packagePath = require.resolve("local-client/build/index.html");
+  const packagePath = require.resolve(
+    "@pysjsnote/local-client/build/index.html"
+  );
 
   app.use(createCellsRouter(filename, dir));
 

@@ -23,7 +23,7 @@
     "@pysjsnote/local-api": "^1.0.1",
     "@types/node": "^15.12.2",
     "commander": "^7.2.0",
-    "esbuild": "0.8.26",
+    "esbuild": "0.25.0",
     "typescript": "^4.3.2"
   }
 }
